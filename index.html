@@ -151,6 +151,63 @@ footer{
   position:relative; max-width:1060px; margin:20px auto 0; padding:22px 18px 40px;
   text-align:center; font-size:.8rem; opacity:.6; line-height:1.6;
 }
+
+/* ---------- Discord box (start page) ---------- */
+.discord{max-width:640px; margin:26px auto 0; text-align:center}
+.discord .dc-title{font-family:'Bangers','Impact',system-ui,sans-serif; font-size:1.6rem; letter-spacing:1px}
+.discord p{margin:6px 0 14px; opacity:.85; line-height:1.5}
+.btn.dc{display:inline-block; text-decoration:none; color:#fff; background:linear-gradient(180deg,#8ea1ff,#5865f2)}
+
+/* elements that exist only for phones */
+.mob-only{display:none}
+
+/* ---------- Phones only (PC view stays unchanged) ---------- */
+@media (max-width:640px){
+  .mob-only{display:block}
+  main{padding:34px 16px 32px}
+  .moon{width:54px; height:54px; top:16px; right:14px; box-shadow:0 0 36px 12px rgba(255,236,170,.3)}
+  h1{font-size:clamp(3rem,15vw,4.2rem)}
+  .tag{font-size:1.25rem; margin:12px 0 10px}
+  .mob-lead{text-align:center; font-size:1.15rem; font-weight:800; margin:0 0 18px; line-height:1.4}
+  form{gap:12px}
+  input[type=text]{flex:1 1 100%; font-size:1.1rem; padding:17px 16px}
+  .btn{min-height:52px; font-size:1.1rem}
+  form .btn{width:100%}
+  .hint{font-size:1rem; line-height:1.6}
+  .link{font-size:1rem; padding:10px 8px}
+  .how{max-width:640px; margin:18px auto 0; font-size:1rem; line-height:1.6}
+  .how b{display:block; font-family:'Bangers','Impact',system-ui,sans-serif; font-size:1.5rem; letter-spacing:1px; font-weight:400; margin-bottom:4px}
+  .how ol{margin:0; padding-left:22px}
+  .discord .dc-title{font-size:1.9rem}
+  .discord p{font-size:1.05rem}
+  .discord .btn{width:100%}
+  #loadMsg{font-size:1.25rem}
+  #errMsg{font-size:1.1rem}
+  .player .nm{font-size:2.3rem}
+  .player .sub{font-size:1.05rem}
+  .score .lab{font-size:1rem}
+  .score .rank{font-size:2rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat b{font-size:2.3rem}
+  .stat b.small{font-size:1.3rem}
+  .stat span{font-size:1rem}
+  h2{font-size:2.5rem}
+  .controls select{flex:1 1 100%; font-size:1.05rem; padding:13px 12px}
+  .grid{grid-template-columns:repeat(2,1fr); gap:20px 12px}
+  .stone-txt{left:15%; right:15%}
+  .rip{font-size:1.05rem}
+  .ttl{font-size:.92rem}
+  .hrs{font-size:.82rem}
+  .epi{font-size:.72rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+  .revive{font-size:1rem; padding:10px 18px; min-height:44px}
+  .ach{grid-template-columns:1fr}
+  .a b{font-size:1.5rem}
+  .a span{font-size:1rem}
+  #shareCanvas{max-width:100%}
+  .share p{font-size:1.05rem}
+  .share .btn{width:100%}
+  footer{font-size:.9rem}
+}
 </style>
 </head>
 <body>
@@ -168,6 +225,7 @@ footer{
   <section id="hero">
     <h1>Backlog<br>Graveyard</h1>
     <p class="tag">Where your unplayed Steam games come to rest.</p>
+    <p class="mob-lead mob-only">Paste your Steam link below and see all your dead games.</p>
     <form id="form" autocomplete="off">
       <input type="text" id="profile" placeholder="Paste your Steam profile link" aria-label="Steam profile link" maxlength="200" required>
       <button class="btn" type="submit">Dig up my graveyard</button>
@@ -178,6 +236,19 @@ footer{
       Link example: steamcommunity.com/id/yourname &middot;
       <button class="link" id="demoBtn" type="button">Just show me a demo</button>
     </p>
+    <div class="how mob-only">
+      <b>How to find your link</b>
+      <ol>
+        <li>Open your Steam profile in a browser.</li>
+        <li>Copy the link from the address bar.</li>
+        <li>Paste it above and tap the button.</li>
+      </ol>
+    </div>
+    <div class="discord">
+      <div class="dc-title">Join the Graveyard Discord</div>
+      <p>Share your graveyard, show your Graveyard Score and tell us which game you will never play.</p>
+      <a class="btn dc" href="https://discord.gg/v3beuKPKjK" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+    </div>
   </section>
 
   <section id="loading" hidden>
